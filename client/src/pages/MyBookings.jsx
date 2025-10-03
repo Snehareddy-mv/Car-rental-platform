@@ -28,26 +28,24 @@ const MyBookings = () => {
   };
 
 
-  const changeBookingStatus=async(bookingId,status)=>{
-    try {
-      const {data}=await axios.post('/api/bookings/change-status',{bookingId,status})
-      if(data.success){
-        toast.success(data.message)
-        fetchBookings()
-      }
-      else{
-        toast.error(data.message)
-      }
-      
-    } catch (error) {
-      toast.error(error.message)
-      
-    }
-  }
+  
+
+  // useEffect(() => {
+  //   user && fetchBookings();
+  // }, [user]);
 
   useEffect(() => {
-    user && fetchBookings();
-  }, [user]);
+  if (!user) return;
+
+  fetchBookings(); // fetch first time
+
+  const interval = setInterval(() => {
+    fetchBookings(); // auto-refresh every 10 sec
+  }, 10000);
+
+  return () => clearInterval(interval); // clear when leaving page
+}, [user]);
+
 
   return (
     <motion.div 
