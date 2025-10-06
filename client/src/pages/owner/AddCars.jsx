@@ -51,9 +51,8 @@ const AddCars = () => {
       }
     } catch (error) {
       toast.error(error.message);
-    }
-    finally{
-      setIsLoading(true)
+    } finally {
+      setIsLoading(true);
     }
   };
 
@@ -183,11 +182,19 @@ const AddCars = () => {
               required
             >
               <option value="">Select a Fuel Type</option>
-              <option value="Gas">Gas</option>
+              {/* <option value="Gas">Gas</option>
               <option value="Petrol">Petrol</option>
               <option value="Diesel">Diesel</option>
               <option value="Electric">Electric</option>
-              <option value="Hybrid">Hybrid</option>
+              <option value="Hybrid">Hybrid</option> */}
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="CNG">CNG (Compressed Natural Gas)</option>
+              <option value="LPG">LPG (Liquefied Petroleum Gas)</option>
+              <option value="Electric">Electric (EV)</option>
+              <option value="Hybrid">Hybrid (Petrol + Electric)</option>
+              <option value="Flex-Fuel">Flex-Fuel (Ethanol blends)</option>
+              <option value="Hydrogen">Hydrogen Fuel Cell (future tech)</option>
             </select>
           </div>
 
@@ -217,10 +224,18 @@ const AddCars = () => {
             required
           >
             <option value="">Select a Location</option>
-            <option value="New York">New York</option>
+            {/* <option value="New York">New York</option>
             <option value="Los Angeles">Los Angeles</option>
             <option value="Houstan">Houstan</option>
-            <option value="Chicago">Chicago</option>
+            <option value="Chicago">Chicago</option> */}
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Pune">Pune</option>
+            <option value="Ahmedabad">Ahmedabad</option>
           </select>
         </div>
 
@@ -239,7 +254,7 @@ const AddCars = () => {
 
         <button className="bg-primary text-white w-max flex items-center gap-2 rounded px-3 py-2 mt-2 cursor-pointer">
           <img src={assets.tick_icon} alt="" />
-          {isLoading ? "Listing.....":"List Your Car"}
+          {isLoading ? "Listing....." : "List Your Car"}
         </button>
       </form>
     </div>
